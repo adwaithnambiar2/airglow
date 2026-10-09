@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="310" viewBox="0 0 1200 310" role="img" aria-labelledby="title desc">
+<title id="title">Airglow — draw beyond the screen</title><desc id="desc">Lilac, rose, and mint trails weave around a hand on a dark purple background. An illustration of the project's creative drawing concept.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#211330"/><stop offset="1" stop-color="#100c1b"/></linearGradient>
+<linearGradient id="hand" x2="1" y2="1"><stop stop-color="#bd9aff"/><stop offset="1" stop-color="#ff98cd"/></linearGradient>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".7" fill="#b999d5" opacity=".16"/></pattern>
+</defs>
+<rect width="1200" height="310" rx="24" fill="url(#bg)"/><rect width="1200" height="310" rx="24" fill="url(#dots)"/>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="64" y="66" font-size="11" letter-spacing="3" fill="#ad92c7">COMPUTER VISION MEETS A LITTLE MAGIC</text><text x="60" y="154" font-size="76" font-weight="600" letter-spacing="-3" fill="#f4ecff">airglow<tspan fill="#ff98cd">.</tspan></text><text x="64" y="202" font-size="24" fill="#d2b6eb">Draw beyond the screen.</text><text x="64" y="259" font-size="12" letter-spacing="1" fill="#a58db7">PINCH TO DRAW · FOLLOW THE LIGHT · SAVE YOUR ART</text></g>
+<g fill="none" stroke-linecap="round" stroke-width="4"><g filter="url(#glow)" opacity=".8"><path d="M690 225C616 196 706 97 817 133S1088 211 1100 116" stroke="#bb95ff"/><path d="M675 94C741 32 916 76 1027 217S919 268 822 206" stroke="#ff98cd"/><path d="M697 251C810 174 834 45 989 84S1128 160 1089 218" stroke="#88efce"/></g><path d="M690 225C616 196 706 97 817 133S1088 211 1100 116" stroke="#bb95ff"/><path d="M675 94C741 32 916 76 1027 217S919 268 822 206" stroke="#ff98cd"/><path d="M697 251C810 174 834 45 989 84S1128 160 1089 218" stroke="#88efce"/></g>
+<circle cx="869" cy="161" r="80" fill="#171023" stroke="#583b6d"/>
+<g transform="translate(807 105) scale(1.03)"><path d="M35 94c-6-12-14-21-16-32-1-7 6-10 11-3l9 12-3-44c-1-10 12-13 14-3l5 33 3-47c1-10 14-9 14 1l-2 44 8-34c3-9 15-5 12 4l-8 40 7-15c5-8 15-2 10 7L82 90c-2 7-9 13-17 13H48c-5 0-10-3-13-9Z" fill="none" stroke="url(#hand)" stroke-width="3.5" stroke-linejoin="round"/></g>
+<g stroke="#ffe6a0" stroke-width="2" stroke-linecap="round"><path d="M1049 52v16m-8-8h16M760 240v12m-6-6h12"/></g><circle cx="1096" cy="251" r="3" fill="#bb95ff"/>
+</svg>
