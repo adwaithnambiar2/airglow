@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {CanvasBook,isPinching,pinchRatio,mapLandmark,renderBook} from '../static/core.js';
+const p=(x,y)=>({x,y});const settings={brush:'neon',color:'#ba92ff',size:6};
+test('undo and redo restore complete strokes',()=>{const b=new CanvasBook();b.begin(p(.1,.2),settings);b.add(p(.3,.4));b.end();assert.equal(b.count(),1);b.undo();assert.equal(b.count(),0);b.redo();assert.equal(b.visible()[0].points.length,2)});
+test('clear is undoable and redoable',()=>{const b=new CanvasBook();b.begin(p(.1,.2),settings);b.end();b.clear();assert.equal(b.count(),0);b.undo();assert.equal(b.count(),1);b.redo();assert.equal(b.count(),0)});
+test('new stroke invalidates redo',()=>{const b=new CanvasBook();b.begin(p(.1,.1),settings);b.end();b.undo();b.begin(p(.5,.5),settings);b.end();assert.equal(b.redoStack.length,0)});
+test('tiny movements are not duplicated',()=>{const b=new CanvasBook();b.begin(p(.1,.1),settings);b.add(p(.1,.1));assert.equal(b.current.points.length,1)});
+test('pinch hysteresis resists flicker',()=>{assert.equal(isPinching(.31,false),true);assert.equal(isPinching(.4,true),true);assert.equal(isPinching(.4,false),false);assert.equal(isPinching(.5,true),false);assert.equal(isPinching(Infinity,true),false)});
+test('coordinates mirror camera and account for cover cropping',()=>{assert.deepEqual(mapLandmark(p(.2,.4),100,100,100,100),p(.8,.4));assert.deepEqual(mapLandmark(p(.5,.5),1920,1080,800,600),p(.5,.5));assert.equal(mapLandmark(p(0,.5),1920,1080,800,600).x,1)});
+test('pinch geometry normalizes by palm size',()=>{const hand=Array.from({length:21},()=>p(0,0));hand[9]=p(0,.1);hand[4]=p(.2,.2);hand[8]=p(.2,.23);assert.ok(Math.abs(pinchRatio(hand,1000,1000)-.3)<1e-10)});
+test('eraser does not inflate drawing count',()=>{const b=new CanvasBook();b.begin(p(.1,.1),{...settings,brush:'eraser'});b.end();assert.equal(b.count(),0)});
+test('rendering uses eraser composite and restores context',()=>{const calls=[];const c=new Proxy({set globalCompositeOperation(v){calls.push(v)}},{get:(t,k)=>k in t?t[k]:(()=>{})});const b=new CanvasBook();b.begin(p(.1,.1),{...settings,brush:'eraser'});b.end();renderBook(c,b,100,100);assert.ok(calls.includes('destination-out'))});

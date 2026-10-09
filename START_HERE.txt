@@ -1,0 +1,21 @@
+AIRGLOW - DRAW BEYOND THE SCREEN
+
+1. Extract this ZIP completely.
+2. Open the airglow folder.
+3. Double-click start_windows.bat.
+4. Keep the terminal open. Your browser opens http://127.0.0.1:5005
+
+No pip install or virtual environment is needed.
+Python 3.9 or newer must be installed.
+
+Mouse: click and drag on the canvas.
+Camera: click Camera, allow webcam access, and pinch thumb + index to draw.
+Release the pinch to lift the brush.
+
+Export PNG saves your drawing. Refreshing loses unsaved artwork.
+Ctrl+C in the terminal stops the app.
+
+If double-clicking fails, open CMD in this folder and run:
+py start.py
+
+Read README.md for controls, troubleshooting, tests, and AI attribution.

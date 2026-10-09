@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-09",
+  "unit_tests": {
+    "passed": 9,
+    "failed": 0,
+    "runner": "Node built-in test runner"
+  },
+  "browser": {
+    "engine": "Chromium 134 via Playwright 1.51.0",
+    "checks": [
+      "mouse drawing",
+      "undo and redo",
+      "undoable clear",
+      "three example curves",
+      "opaque PNG export",
+      "transparent PNG export",
+      "390px mobile viewport without horizontal overflow",
+      "bundled MediaPipe model initialization",
+      "inference on simulated camera video",
+      "camera stream cleanup when returning to mouse"
+    ],
+    "uncaught_errors": 0
+  },
+  "png_checks": {
+    "dimensions": [
+      1050,
+      656
+    ],
+    "opaque_corner_rgba": [
+      16,
+      12,
+      27,
+      255
+    ],
+    "transparent_corner_rgba": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "physical_webcam_gestures": "Not tested in this environment. Test on your own webcam.",
+  "ai_assistance": "Initial implementation, visual design, debugging, tests, and documentation were AI-assisted.",
+  "model": {
+    "name": "MediaPipe Hand Landmarker float16 version 1",
+    "runtime_version": "0.10.21",
+    "training_performed": false,
+    "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1"
+  }
+}
